@@ -1,5 +1,26 @@
+
+
+
+
+
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.title %></li>
+    <% if task.completed? %>
+      <li>[x] <%= link_to task.title, task_path(task) %></li>
+    <% else %>
+      <li>[ ] <%= link_to task.title, task_path(task) %></li>
+    <% end %>
   <% end %>
 </ul>
+
+
+<!-- <ul>
+  <% @tasks.each do |task| %>
+
+    <li><%= link_to task.title, task_path(task.id) %></li>
+  <% end %>
+</ul> -->
+
+<!-- (task.id) le id n'est pas necessaire, parce que dans le routes on demande pour le id
+ -->
+
